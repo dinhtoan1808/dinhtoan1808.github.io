@@ -1,16 +1,320 @@
 <!DOCTYPE HTML>
 <!--
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
+	Portfolio - Lương Đình Toàn
+	Based on Dimension by HTML5 UP (html5up.net | @ajlkn)
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title>Dimension by HTML5 UP</title>
+		<title>Lương Đình Toàn - Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="images/overlay1.png" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* ===== Typing Animation ===== */
+			.typed-wrap {
+				display: inline;
+			}
+			.typed-text {
+				border-right: 2px solid rgba(255,255,255,0.75);
+				padding-right: 4px;
+				animation: blink-caret 0.75s step-end infinite;
+			}
+			@keyframes blink-caret {
+				from, to { border-color: transparent; }
+				50% { border-color: rgba(255,255,255,0.75); }
+			}
+
+			/* ===== Highlight Stats on Homepage ===== */
+			.stats-row {
+				display: flex;
+				justify-content: center;
+				gap: 2em;
+				margin: 1.5em 0 0.5em;
+				flex-wrap: wrap;
+			}
+			.stat-item {
+				text-align: center;
+				min-width: 100px;
+			}
+			.stat-number {
+				display: block;
+				font-size: 2em;
+				font-weight: 700;
+				color: #ffffff;
+				line-height: 1.2;
+			}
+			.stat-label {
+				font-size: 0.8em;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				opacity: 0.7;
+			}
+
+			/* ===== Section Navigation ===== */
+			.section-nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 2em;
+				padding-top: 1.5em;
+				border-top: 1px solid rgba(255,255,255,0.15);
+			}
+			.section-nav a {
+				font-size: 0.85em;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				opacity: 0.7;
+				transition: opacity 0.3s;
+			}
+			.section-nav a:hover {
+				opacity: 1;
+			}
+
+			/* ===== Project Cards ===== */
+			.project-card {
+				background: rgba(255,255,255,0.035);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 8px;
+				overflow: hidden;
+				margin-bottom: 2em;
+				transition: transform 0.3s, border-color 0.3s;
+			}
+			.project-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(255,255,255,0.25);
+			}
+			.project-card .project-img {
+				width: 100%;
+				height: 200px;
+				background: rgba(255,255,255,0.05);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				position: relative;
+			}
+			.project-card .project-img img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.project-card .project-img .placeholder {
+				text-align: center;
+				opacity: 0.4;
+			}
+			.project-card .project-img .placeholder i {
+				font-size: 3em;
+				display: block;
+				margin-bottom: 0.3em;
+			}
+			.project-card .project-img .placeholder span {
+				font-size: 0.75em;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+			}
+			.project-card .project-body {
+				padding: 1.5em;
+			}
+			.project-card .project-body h3 {
+				margin-bottom: 0.5em;
+				font-size: 1.1em;
+			}
+			.project-card .project-body p {
+				font-size: 0.9em;
+				opacity: 0.85;
+				margin-bottom: 0.8em;
+			}
+			.project-card .tech-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.4em;
+				margin-top: 0.8em;
+			}
+			.project-card .tech-tags span {
+				background: rgba(255,255,255,0.08);
+				border: 1px solid rgba(255,255,255,0.15);
+				padding: 0.2em 0.7em;
+				border-radius: 20px;
+				font-size: 0.72em;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
+
+			/* ===== Skills Section ===== */
+			.skills-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1.5em;
+				margin-top: 1em;
+			}
+			@media screen and (max-width: 600px) {
+				.skills-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+			.skill-category {
+				background: rgba(255,255,255,0.035);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 8px;
+				padding: 1.2em;
+			}
+			.skill-category h4 {
+				font-size: 0.85em;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				margin-bottom: 0.8em;
+				padding-bottom: 0.5em;
+				border-bottom: 1px solid rgba(255,255,255,0.1);
+			}
+			.skill-category h4 i {
+				margin-right: 0.5em;
+				opacity: 0.7;
+			}
+			.skill-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.skill-list li {
+				padding: 0.3em 0;
+				font-size: 0.9em;
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+			}
+			.skill-list li::before {
+				content: "▸";
+				opacity: 0.5;
+				font-size: 0.8em;
+			}
+
+			/* ===== Timeline ===== */
+			.timeline-item {
+				position: relative;
+				padding-left: 1.5em;
+				padding-bottom: 1.5em;
+				border-left: 2px solid rgba(255,255,255,0.15);
+			}
+			.timeline-item:last-child {
+				border-left: 2px solid transparent;
+				padding-bottom: 0;
+			}
+			.timeline-item::before {
+				content: "";
+				position: absolute;
+				left: -6px;
+				top: 4px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #ffffff;
+				border: 2px solid rgba(255,255,255,0.5);
+			}
+			.timeline-item .time-period {
+				font-size: 0.8em;
+				opacity: 0.6;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+			}
+			.timeline-item h4 {
+				margin: 0.3em 0 0.2em;
+			}
+			.timeline-item .sub {
+				opacity: 0.75;
+				font-size: 0.9em;
+			}
+
+			/* ===== Contact Card ===== */
+			.contact-cards {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1em;
+				margin-bottom: 2em;
+			}
+			@media screen and (max-width: 600px) {
+				.contact-cards {
+					grid-template-columns: 1fr;
+				}
+			}
+			.contact-card {
+				background: rgba(255,255,255,0.035);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 8px;
+				padding: 1.2em;
+				text-align: center;
+				transition: transform 0.3s;
+			}
+			.contact-card:hover {
+				transform: translateY(-3px);
+			}
+			.contact-card i {
+				font-size: 1.5em;
+				display: block;
+				margin-bottom: 0.5em;
+				opacity: 0.7;
+			}
+			.contact-card .label {
+				font-size: 0.7em;
+				text-transform: uppercase;
+				letter-spacing: 0.15em;
+				opacity: 0.5;
+				display: block;
+				margin-bottom: 0.3em;
+			}
+			.contact-card a {
+				font-size: 0.9em;
+				border-bottom: none;
+			}
+
+			/* ===== Form Status ===== */
+			.form-status {
+				padding: 1em;
+				border-radius: 6px;
+				margin-top: 1em;
+				display: none;
+				text-align: center;
+			}
+			.form-status.success {
+				display: block;
+				background: rgba(100, 200, 100, 0.15);
+				border: 1px solid rgba(100, 200, 100, 0.3);
+			}
+			.form-status.error {
+				display: block;
+				background: rgba(200, 100, 100, 0.15);
+				border: 1px solid rgba(200, 100, 100, 0.3);
+			}
+
+			/* ===== Intro highlights ===== */
+			.highlight-box {
+				display: flex;
+				gap: 1em;
+				align-items: flex-start;
+				background: rgba(255,255,255,0.035);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 8px;
+				padding: 1.2em;
+				margin-bottom: 1em;
+			}
+			.highlight-box i {
+				font-size: 1.5em;
+				opacity: 0.6;
+				flex-shrink: 0;
+				margin-top: 0.15em;
+			}
+			.highlight-box div h4 {
+				margin-bottom: 0.3em;
+				font-size: 0.95em;
+			}
+			.highlight-box div p {
+				font-size: 0.88em;
+				margin: 0;
+				opacity: 0.8;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -20,22 +324,27 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-gem"></span>
+							<img src="images/logo-bach-khoa-tphcm-png.png" alt="Logo Bách Khoa TPHCM" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Dimension</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<h1>Lương Đình Toàn</h1>
+								<p>
+									<span class="typed-wrap"><span class="typed-text" id="typed-output"></span></span>
+								</p>
+								<div class="stats-row">
+									<div class="stat-item">
+										
+									</div>
+								</div>
 							</div>
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
+								<li><a href="#intro">Giới Thiệu</a></li>
+								<li><a href="#projects">Dự Án</a></li>
+								<li><a href="#about">Về Tôi</a></li>
+								<li><a href="#contact">Liên Hệ</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -45,305 +354,239 @@
 
 						<!-- Intro -->
 							<article id="intro">
-								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+								<h2 class="major">Giới Thiệu</h2>
+								<span class="image main"><img src="images/pic04.jpg" alt="Giới thiệu" /></span>
+
+								<p style="font-size:1.1em;">Xin chào! Mình là <strong>Lương Đình Toàn</strong> &mdash; sinh viên ngành <strong>Kỹ thuật Điện tử - Viễn thông</strong> tại Đại học Bách Khoa TP.HCM. Mình rất đam mê thiết kế phần cứng và phát triển các hệ thống tín hiệu cao tần (RF). Mình thích biến những ý tưởng trên giấy thành những sản phẩm thực tế có thể chạy được, và luôn muốn học hỏi thêm nhiều điều mới! 🫡</p>
+
+								<div class="highlight-box">
+									<i class="fas fa-drafting-compass"></i>
+									<div>
+										<h4>Thiết kế mạch &amp; PCB</h4>
+										<p>Kỹ sư Thiết kế Phần cứng | PCB Cao tần  | Hệ thống mmWave</p>
+									</div>
+								</div>
+								<div class="highlight-box">
+									<i class="fas fa-signal"></i>
+									<div>
+										<h4>Xử lý tín hiệu</h4>
+										<p>Phát triển hệ thống DSP real-time trên MATLAB, phân tích THD âm thanh.</p>
+									</div>
+								</div>
+								<div class="highlight-box">
+									<i class="fas fa-microchip"></i>
+									<div>
+										<h4>Hệ thống nhúng</h4>
+										<p>Lập trình firmware và thiết lập giao tiếp Modbus RTU.</p>
+									</div>
+								</div>
+
+								<div class="section-nav">
+									<span></span>
+									<a href="#projects">Xem dự án của tôi &rarr;</a>
+								</div>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+						<!-- Projects -->
+							<article id="projects">
+								<h2 class="major">Dự Án</h2>
+
+								<!-- Project 1 -->
+								<div class="project-card">
+									<div class="project-img">
+										<img src="images/PCB.png" alt="Thiết kế PCB Radar mmWave" />
+									</div>
+									<div class="project-body">
+										<h3>Thiết kế PCB Radar mmWave 77-81GHz cho Drone</h3>
+										<p>Nghiên cứu và thiết kế mạch in (PCB) cho hệ thống Radar tránh vật cản, dựa trên thiết kế tham chiếu sử dụng chip <strong>AWR1843</strong>.</p>
+										<p>Phân tích tín hiệu chirp của radar mmWave và tính toán thiết kế stack-up sử dụng vật liệu <strong>Rogers</strong> nhằm giảm thiểu suy hao và đảm bảo toàn vẹn tín hiệu ở dải tần số cực cao.</p>
+										<div class="tech-tags">
+											<span>Altium Designer</span>
+											<span>AWR1843</span>
+											<span>Rogers PCB</span>
+											<span>mmWave</span>
+											<span>High-Frequency</span>
+										</div>
+									</div>
+								</div>
+
+								<!-- Project 2 -->
+								<div class="project-card">
+									<div class="project-img">
+											<img src="images/RFID.jpg" alt="Hệ thống RFID" />
+										<div class="placeholder">
+											
+											
+										</div>
+										<!-- <img src="images/project-rfid.jpg" alt="RFID System" /> -->
+									</div>
+									<div class="project-body">
+										<h3>Hệ thống điểm danh RFID giao tiếp Modbus RTU qua RS485</h3>
+										<p>Thiết kế kiến trúc mạng giao tiếp công nghiệp, lựa chọn vi điều khiển <strong>STM32</strong> làm bộ xử lý trung tâm để quản lý các thiết bị ngoại vi.</p>
+										<p>Tích hợp phần cứng module <strong>RC522</strong>  để đọc thẻ RFID và tối ưu lớp giao tiếp vật lý RS485 nhằm đảm bảo tín hiệu truyền ổn định lên máy tính.</p>
+										<div class="tech-tags">
+											<span>STM32</span>
+											<span>Modbus RTU</span>
+											<span>RS485</span>
+											<span>RC522 RFID</span>
+											
+										</div>
+									</div>
+								</div>
+
+								<!-- Project 3 -->
+								<div class="project-card">
+									<div class="project-img">
+										<img src="images/Matlab.png" alt="Real-Time Scope DSP" />
+									</div>
+									<div class="project-body">
+										<h3>Real-Time Scope: Audio I/O + Trigger &amp; THD</h3>
+										<p>Ứng dụng <strong>MATLAB</strong> để phát triển và mô phỏng hệ thống xử lý tín hiệu âm thanh theo thời gian thực (Real-time Digital Signal Processing).</p>
+										<p>Tích hợp các khối thu phát tín hiệu (Audio I/O), thiết lập cơ chế đồng bộ (Triggering) và xây dựng thuật toán đo lường phân tích tổng độ méo hài (THD).</p>
+										<div class="tech-tags">
+											<span>MATLAB</span>
+											<span>DSP</span>
+											<span>Audio I/O</span>
+											<span>THD Analysis</span>
+										</div>
+									</div>
+								</div>
+
+								<!-- ===== Technical Skills ===== -->
+								<h2 class="major" style="margin-top: 1em;">Kỹ Năng Kỹ Thuật</h2>
+								<div class="skills-grid">
+									<div class="skill-category">
+										<h4><i class="fas fa-drafting-compass"></i> PCB &amp; Layout</h4>
+										<ul class="skill-list">
+											<li>Altium Designer</li>
+											<li>Proteus</li>
+											<li>ADS Keysight</li>
+											<li>HFSS</li>
+										</ul>
+									</div>
+									<div class="skill-category">
+										<h4><i class="fas fa-code"></i> Phần mềm &amp; Lập trình</h4>
+										<ul class="skill-list">
+											<li>MATLAB</li>
+											<li>Arduino IDE, CubeIDE</li>
+											<li>C / C++, Assembly</li>
+											<li>Cisco Packet Tracer</li>
+										</ul>
+									</div>
+									<div class="skill-category">
+										<h4><i class="fas fa-microchip"></i> Nhúng &amp; Giao tiếp</h4>
+										<ul class="skill-list">
+											<li>Vi điều khiển STM32, AVR</li>
+											<li>Modbus RTU</li>
+										</ul>
+									</div>
+									<div class="skill-category">
+										<h4><i class="fas fa-tools"></i> Công cụ &amp; Khác</h4>
+										<ul class="skill-list">
+											<li>Oscilloscope | Signal Generator | Logic Analyzer</li>
+											<li>Đọc hiểu Datasheet</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="section-nav">
+									<a href="#intro">&larr; Giới thiệu</a>
+									<a href="#about">Về tôi &rarr;</a>
+								</div>
 							</article>
 
 						<!-- About -->
 							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<h2 class="major">Về Tôi</h2>
+								<span class="image main"><img src="images/vetoi.jpg" alt="Về tôi" /></span>
+
+								<h3><i class="fas fa-graduation-cap" style="margin-right:0.4em; opacity:0.6;"></i> Học Vấn</h3>
+								<div class="timeline-item">
+									<span class="time-period">10/2023 &mdash; 10/2028 (dự kiến)</span>
+									<h4>Cử nhân Kỹ thuật Điện tử - Viễn thông</h4>
+									<p class="sub">Đại học Bách Khoa TP.HCM (HCMUT)</p>
+								</div>
+
+								<h3 style="margin-top:1.5em;"><i class="fas fa-globe" style="margin-right:0.4em; opacity:0.6;"></i> Ngoại Ngữ</h3>
+								<div class="timeline-item">
+									<h4>TOEIC</h4>
+									<p class="sub">Listening &amp; Reading: <strong>710</strong> &nbsp;|&nbsp; Writing &amp; Speaking: <strong>260</strong></p>
+								</div>
+
+								<h3 style="margin-top:1.5em;"><i class="fas fa-users" style="margin-right:0.4em; opacity:0.6;"></i> Hoạt Động Ngoại Khóa</h3>
+								<div class="timeline-item">
+									<h4>Cộng Tác Viên &mdash; VP Công tác Sinh viên HCMUT</h4>
+									<ul style="margin-top:0.5em; padding-left:1.2em; list-style:disc;">
+										<li style="margin-bottom:0.3em;">Tổ chức: Ngày hội Sách cũ &ndash; Tri thức mới, Ngày hội Việc làm, Tiếp sức tới trường.</li>
+										<li>Có kinh nghiệm làm việc nhóm, giao tiếp và điều phối trong môi trường thực tế.</li>
+									</ul>
+								</div>
+
+								<h3 style="margin-top:1.5em;"><i class="fas fa-bullseye" style="margin-right:0.4em; opacity:0.6;"></i> Mục Tiêu</h3>
+								<p>Định hướng phát triển chuyên sâu trở thành kỹ sư R&amp;D mảng <strong>Hardware / System Architecture</strong>, ứng dụng nền tảng tín hiệu cao tần và kỹ thuật xử lý tín hiệu vào các sản phẩm công nghệ thực tế.  </p>
+
+								<div class="section-nav">
+									<a href="#projects">&larr; Dự án</a>
+									<a href="#contact">Liên hệ &rarr;</a>
+								</div>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
-								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<h2 class="major">Liên Hệ</h2>
+
+								<div class="contact-cards">
+									<a href="tel:0971118346" class="contact-card" style="text-decoration:none; color:inherit;">
+										<i class="fas fa-phone"></i>
+										<span class="label">Điện thoại</span>
+										0971 118 346
+									</a>
+									<a href="mailto:Dinhtoanlk05@gmail.com" class="contact-card" style="text-decoration:none; color:inherit;">
+										<i class="fas fa-envelope"></i>
+										<span class="label">Email</span>
+										Dinhtoanlk05@gmail.com
+									</a>
+								
+								</div>
+
+								<h3 style="margin-bottom:1em;">Gửi tin nhắn cho tôi</h3>
+								<form id="contact-form" method="post" action="#">
 									<div class="fields">
 										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<label for="name">Họ Tên</label>
+											<input type="text" name="name" id="name" required />
 										</div>
 										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<label for="email">Email của bạn</label>
+											<input type="email" name="email" id="email" required />
 										</div>
 										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
+											<label for="subject">Tiêu đề</label>
+											<input type="text" name="subject" id="subject" />
+										</div>
+										<div class="field">
+											<label for="message">Tin Nhắn</label>
+											<textarea name="message" id="message" rows="5" required></textarea>
 										</div>
 									</div>
 									<ul class="actions">
-										<li><input type="submit" value="Send Message" class="primary" /></li>
-										<li><input type="reset" value="Reset" /></li>
+										<li><input type="submit" value="Gửi Tin Nhắn" class="primary" /></li>
+										<li><input type="reset" value="Xóa" /></li>
 									</ul>
 								</form>
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</article>
+								<div id="form-status" class="form-status"></div>
 
-						<!-- Elements -->
-							<article id="elements">
-								<h2 class="major">Elements</h2>
-
-								<section>
-									<h3 class="major">Text</h3>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
-									<hr />
-									<h4>Blockquote</h4>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h4>Preformatted</h4>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-								</section>
-
-								<section>
-									<h3 class="major">Lists</h3>
-
-									<h4>Unordered</h4>
-									<ul>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Alternate</h4>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam.</li>
-										<li>Sagittis adipiscing.</li>
-										<li>Felis enim feugiat.</li>
-									</ul>
-
-									<h4>Ordered</h4>
-									<ol>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis viverra.</li>
-										<li>Felis enim feugiat.</li>
-										<li>Dolor pulvinar etiam.</li>
-										<li>Etiam vel felis lorem.</li>
-										<li>Felis enim et feugiat.</li>
-									</ol>
-									<h4>Icons</h4>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-									</ul>
-
-									<h4>Actions</h4>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions stacked">
-										<li><a href="#" class="button primary">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Table</h3>
-									<h4>Default</h4>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-
-									<h4>Alternate</h4>
-									<div class="table-wrapper">
-										<table class="alt">
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
-								</section>
-
-								<section>
-									<h3 class="major">Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-								<section>
-									<h3 class="major">Form</h3>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="demo-name">Name</label>
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
-											</div>
-											<div class="field half">
-												<label for="demo-email">Email</label>
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
-											</div>
-											<div class="field">
-												<label for="demo-category">Category</label>
-												<select name="demo-category" id="demo-category">
-													<option value="">-</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="field half">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="field half">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="field">
-												<label for="demo-message">Message</label>
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="primary" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</form>
-								</section>
-
+								<div class="section-nav">
+									<a href="#about">&larr; Về tôi</a>
+									<a href="#intro">Giới thiệu &rarr;</a>
+								</div>
 							</article>
 
 					</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; 2026 Lương Đình Toàn</p>
 					</footer>
 
 			</div>
@@ -357,6 +600,79 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				// ===== Typing Animation =====
+				(function() {
+					var phrases = [
+						"Hardware Engineer in the Making",
+						"Sinh viên ĐTVT — Bách Khoa TP.HCM",
+						"PCB Design · Embedded Systems · DSP",
+						
+					];
+					var el = document.getElementById('typed-output');
+					if (!el) return;
+					var phraseIdx = 0, charIdx = 0, deleting = false, pauseEnd = 0;
+
+					function tick() {
+						var now = Date.now();
+						if (now < pauseEnd) { requestAnimationFrame(tick); return; }
+
+						var current = phrases[phraseIdx];
+						if (!deleting) {
+							charIdx++;
+							el.textContent = current.substring(0, charIdx);
+							if (charIdx === current.length) {
+								deleting = true;
+								pauseEnd = now + 2000;
+							}
+						} else {
+							charIdx--;
+							el.textContent = current.substring(0, charIdx);
+							if (charIdx === 0) {
+								deleting = false;
+								phraseIdx = (phraseIdx + 1) % phrases.length;
+							}
+						}
+						var speed = deleting ? 35 : 65;
+						setTimeout(function() { requestAnimationFrame(tick); }, speed);
+					}
+					tick();
+				})();
+
+				// ===== Contact Form — mailto fallback =====
+				(function() {
+					var form = document.getElementById('contact-form');
+					if (!form) return;
+
+					form.addEventListener('submit', function(e) {
+						e.preventDefault();
+						var name = form.querySelector('#name').value.trim();
+						var email = form.querySelector('#email').value.trim();
+						var subject = form.querySelector('#subject').value.trim() || 'Liên hệ từ Portfolio';
+						var message = form.querySelector('#message').value.trim();
+						var statusEl = document.getElementById('form-status');
+
+						if (!name || !email || !message) {
+							statusEl.className = 'form-status error';
+							statusEl.textContent = 'Vui lòng điền đầy đủ các trường bắt buộc.';
+							return;
+						}
+
+						var body = 'Tên: ' + name + '\nEmail: ' + email + '\n\n' + message;
+						var mailtoLink = 'mailto:Dinhtoanlk05@gmail.com'
+							+ '?subject=' + encodeURIComponent(subject)
+							+ '&body=' + encodeURIComponent(body);
+
+						window.location.href = mailtoLink;
+
+						statusEl.className = 'form-status success';
+						statusEl.textContent = 'Đang mở ứng dụng email của bạn... Nếu không tự mở, hãy gửi email trực tiếp tới Dinhtoanlk05@gmail.com';
+
+						form.reset();
+					});
+				})();
+			</script>
 
 	</body>
 </html>
